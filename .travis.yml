@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm install -g codecov
+script:
+  - npm test
+  - npm run build || true
+  - codecov
+deploy:
+  provider: s3
+  access_key_id: "YOUR AWS ACCESS KEY"
+  secret_access_key: "YOUR AWS SECRET KEY"
+  bucket: "S3 Bucket"
+  skip_cleanup: true
+  region: eu-west-1
+  local_dir: build
+on:
+  branch: master

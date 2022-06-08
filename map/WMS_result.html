@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_444f4379a3ccbf6ee6cd746ef0e62492 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_444f4379a3ccbf6ee6cd746ef0e62492" ></div>
+        
+</body>
+<script>    
+    
+            var map_444f4379a3ccbf6ee6cd746ef0e62492 = L.map(
+                "map_444f4379a3ccbf6ee6cd746ef0e62492",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var macro_element_34078455d6888f2348a32e9bb36746d4 = L.tileLayer.wms(
+                "https://sedac.ciesin.columbia.edu/geoserver/wms",
+                {"attribution": "", "format": "image/png", "layers": "crop-climate-effects-climate-global-food-production:default", "styles": "", "transparent": false, "version": "1.1.1"}
+            ).addTo(map_444f4379a3ccbf6ee6cd746ef0e62492);
+        
+    
+            var macro_element_cc7acc0bc216e29b3a297dc6d5147eef = L.tileLayer.wms(
+                "https://sedac.ciesin.columbia.edu/geoserver/wms",
+                {"attribution": "", "format": "image/png", "layers": "crop-climate-effects-climate-global-food-production:wheat", "styles": "", "transparent": false, "version": "1.1.1"}
+            ).addTo(map_444f4379a3ccbf6ee6cd746ef0e62492);
+        
+    
+            var macro_element_306248c3b0ae04fde58682dc936604ac = L.tileLayer.wms(
+                "https://sedac.ciesin.columbia.edu/geoserver/wms",
+                {"attribution": "", "format": "image/png", "layers": "crop-climate-effects-climate-global-food-production:maize", "styles": "", "transparent": false, "version": "1.1.1"}
+            ).addTo(map_444f4379a3ccbf6ee6cd746ef0e62492);
+        
+    
+            var macro_element_3324280c6b5f41086638d00ef9c8af14 = L.tileLayer.wms(
+                "https://sedac.ciesin.columbia.edu/geoserver/wms",
+                {"attribution": "", "format": "image/png", "layers": "crop-climate-effects-climate-global-food-production:rice", "styles": "", "transparent": false, "version": "1.1.1"}
+            ).addTo(map_444f4379a3ccbf6ee6cd746ef0e62492);
+        
+    
+            var layer_control_b50255274eaec2775deb1bb7a568b038 = {
+                base_layers : {
+                    "wheat" : macro_element_cc7acc0bc216e29b3a297dc6d5147eef,
+                    "maize" : macro_element_306248c3b0ae04fde58682dc936604ac,
+                    "rice" : macro_element_3324280c6b5f41086638d00ef9c8af14,
+                },
+                overlays :  {
+                    "default" : macro_element_34078455d6888f2348a32e9bb36746d4,
+                },
+            };
+            L.control.layers(
+                layer_control_b50255274eaec2775deb1bb7a568b038.base_layers,
+                layer_control_b50255274eaec2775deb1bb7a568b038.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_444f4379a3ccbf6ee6cd746ef0e62492);
+            macro_element_306248c3b0ae04fde58682dc936604ac.remove();
+            macro_element_3324280c6b5f41086638d00ef9c8af14.remove();
+            macro_element_cc7acc0bc216e29b3a297dc6d5147eef.remove();
+        
+</script>
